@@ -21,32 +21,31 @@ namespace JuliasMasterMind
         List<Button> ColorsFifthRow;
         List<Button> ColorssixthRow;
         List<Button> ColorsseventhRow;
+        List<Button> ColoranswerRow;
+        List<Color> colors = new List<Color>();
+        Random random;
         int[] indexofColors;
-        
+        List<int> limit;
         public Form1()
         {
             InitializeComponent();
             
             arrayOfcolors = new Color[] { Color.White, Color.Aqua, Color.Coral, Color.DarkGreen, Color.DeepPink, Color.Yellow };
-            Random random = new Random();
-
-            int[]
-            List<Color> colors = new List<Color>(5);
-                for (int i = 0; i < 5; i++)
-            {
-                
-                int randomcolor = random.Next(1, 5);
-
-                colors[i] = arrayOfcolors[randomcolor];
-                
-            }
-
+             ColorsFirstRow = new List<Button>();
+            ColorsSecondRow = new List<Button>();
+             ColorsThirdRow = new List<Button>();
+             ColorsFourthRow = new List<Button>();
+             ColorsFifthRow = new List<Button>();
+           ColorssixthRow = new List<Button>();
+             ColorsseventhRow = new List<Button>();
+           ColoranswerRow = new List<Button>();
+            List<Color> colors = new List<Color>();
+           
+           
 
 
 
-
-            
-            List<Control> list = new List<Control>();
+            List<Control> list = new List<Control>();//zbieranie buttonów i dodawanie do odpowiedniej listy
 
             foreach (var control in this.Controls)
             {
@@ -77,7 +76,7 @@ namespace JuliasMasterMind
                             }
                         case "fifth":
                             {
-                                ColorsThirdRow.Add(temp);
+                                ColorsFifthRow.Add(temp);
                                 break;
                             }
                         case "sixth":
@@ -90,13 +89,37 @@ namespace JuliasMasterMind
                                 ColorsseventhRow.Add(temp);
                                 break;
                             }
+                        case "Answer":
+                            {
+                                ColoranswerRow.Add(temp);
+
+                                break;
+                            }
                     }
                 }
             }
 
-          
+            shuffle();
+
         }
 
+        public void shuffle()
+        {
+            limit = new List<int>() { 1, 2, 3, 4, 5 };
+            random = new Random();
+            for (int i = 0; i < 5; i++)
+            {
+
+                    while (colors.Count() < 5)
+                    {
+                        int randomcolor = random.Next(1, 5);
+                        colors.Add(arrayOfcolors[randomcolor]);
+                    
+                }
+               
+            }
+
+        }
         public void ChangeColor(object sender, EventArgs e)
         {
             Color actual;
@@ -119,16 +142,13 @@ namespace JuliasMasterMind
             }
 
         }
-        public class Checker
+ 
+       private void Check(object sender, EventArgs e)
         {
-            
-        }
-    
-      
-
-        
-        private void Check(object sender, EventArgs e)
-        {
+            for (int i = 0; i < 5; i++)
+            {
+                ColoranswerRow[i].BackColor = colors[i];
+            }
 
         }
     }
