@@ -107,12 +107,14 @@ namespace JuliasMasterMind
         {
             limit = new List<int>() { 1, 2, 3, 4, 5 };
             random = new Random();
+            int range = 5;
             for (int i = 0; i < 5; i++)
             {
 
-                    while (colors.Count() < 5)
+                    while (colors.Count() >0)
                     {
-                        int randomcolor = random.Next(1, 5);
+                        int randomcolor = random.Next(0, range);
+                        range--;
                         colors.Add(arrayOfcolors[randomcolor]);
                     
                 }
