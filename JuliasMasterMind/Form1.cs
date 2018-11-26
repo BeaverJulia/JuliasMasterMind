@@ -23,9 +23,7 @@ namespace JuliasMasterMind
         List<Button> ColorsseventhRow;
         List<Button> ColoranswerRow;
         List<Color> colors = new List<Color>();
-        Random random;
         int[] indexofColors;
-        List<int> limit;
         public Form1()
         {
             InitializeComponent();
@@ -105,21 +103,22 @@ namespace JuliasMasterMind
 
         public void shuffle()
         {
-            limit = new List<int>() { 1, 2, 3, 4, 5 };
-            random = new Random();
-            int range = 5;
-            for (int i = 0; i < 5; i++)
+            //1. Uzupełnienie tablicy losowymi
+            int[] indexes = new int[5];
+            List<int> poss = new List<int>() { 0, 1, 2, 3, 4 };
+            Random random = new Random();
+            int range = 4;
+            for (int i=0;i<5;i++)
             {
-
-                    while (colors.Count() >0)
-                    {
-                        int randomcolor = random.Next(0, range);
-                        range--;
-                        colors.Add(arrayOfcolors[randomcolor]);
-                    
-                }
-               
+                int rand = random.Next(0, range);
+                range--;
+                indexes[i] = poss[rand];
+                poss.Remove(indexes[i]);
             }
+           
+    
+               
+       
 
         }
         public void ChangeColor(object sender, EventArgs e)
