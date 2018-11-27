@@ -73,7 +73,6 @@
             this.button71 = new System.Windows.Forms.Button();
             this.button72 = new System.Windows.Forms.Button();
             this.button73 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button65 = new System.Windows.Forms.Button();
             this.button66 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
@@ -113,6 +112,7 @@
             this.button82 = new System.Windows.Forms.Button();
             this.button83 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -599,14 +599,6 @@
             this.button73.UseVisualStyleBackColor = true;
             this.button73.AutoSizeChanged += new System.EventHandler(this.ChangeColor);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(17, 63);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(85, 71);
-            this.pictureBox1.TabIndex = 69;
-            this.pictureBox1.TabStop = false;
-            // 
             // button65
             // 
             this.button65.BackColor = System.Drawing.SystemColors.ActiveBorder;
@@ -908,6 +900,7 @@
             this.button78.TabIndex = 78;
             this.button78.Text = "NEXT";
             this.button78.UseVisualStyleBackColor = false;
+            this.button78.Click += new System.EventHandler(this.CheckPosition2);
             // 
             // button79
             // 
@@ -919,6 +912,7 @@
             this.button79.TabIndex = 79;
             this.button79.Text = "NEXT";
             this.button79.UseVisualStyleBackColor = false;
+            this.button79.Click += new System.EventHandler(this.CheckPosition3);
             // 
             // button80
             // 
@@ -930,6 +924,7 @@
             this.button80.TabIndex = 80;
             this.button80.Text = "NEXT";
             this.button80.UseVisualStyleBackColor = false;
+            this.button80.Click += new System.EventHandler(this.CheckPosition4);
             // 
             // button81
             // 
@@ -941,6 +936,7 @@
             this.button81.TabIndex = 81;
             this.button81.Text = "NEXT";
             this.button81.UseVisualStyleBackColor = false;
+            this.button81.Click += new System.EventHandler(this.CheckPosition5);
             // 
             // button82
             // 
@@ -952,6 +948,7 @@
             this.button82.TabIndex = 82;
             this.button82.Text = "NEXT";
             this.button82.UseVisualStyleBackColor = false;
+            this.button82.Click += new System.EventHandler(this.CheckPosition6);
             // 
             // button83
             // 
@@ -963,18 +960,28 @@
             this.button83.TabIndex = 83;
             this.button83.Text = "NEXT";
             this.button83.UseVisualStyleBackColor = false;
+            this.button83.Click += new System.EventHandler(this.CheckPosition7);
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.Control;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBox1.Location = new System.Drawing.Point(113, 65);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(215, 68);
             this.textBox1.TabIndex = 84;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(12, 54);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(85, 85);
+            this.pictureBox1.TabIndex = 69;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Form1
             // 

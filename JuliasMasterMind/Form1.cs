@@ -13,6 +13,7 @@ namespace JuliasMasterMind
 
     public partial class Form1 : Form
     {
+        int blocker;
         Color[] arrayOfcolors;
         List<Button> ColorsFirstRow;
         List<Button>  ColorsSecondRow;
@@ -198,41 +199,269 @@ namespace JuliasMasterMind
         public void CheckPosition(object sender, EventArgs e)
         {
             int j = 0;
+            int k = 0;
             Button clickbutton = (Button)sender;
             for (int i = 0; i < 5; i++)
             {
 
-                        
-                        if(ColorsFirstRow[i].BackColor ==AnswerRow[i])
+
+
+                for (int ii = 0; ii < 5; ii++)
+                {
+                    if (ColorsFirstRow[i].BackColor == AnswerRow[ii])  // jesli dany kolor istnieje w naszej odpowiedzi 
+                    {
+                        if (ColorsFirstRow[i].BackColor == AnswerRow[i])
                         {
-                        AnswerFirstRow[j].BackColor = Color.Black;
+                            AnswerFirstRow[j].BackColor = Color.Black;
+                            k++;
+                        }
+                        else
+                        {
+                            AnswerFirstRow[j].BackColor = Color.Red;
+                        }
                         j++;
-                          }
-                if (j ==5) ;
+                    }
+                   
+                }
+                if (k == 5)
                 {
                     textBox1.Text = "YOU WON";
+                    pictureBox1.Image = Properties.Resources.won;
                 }
-                
+                blocker = k;
             }
         }
         public void CheckPosition2(object sender, EventArgs e)
         {
-
-        }
-
-        private void Check(object sender, EventArgs e)
-        {
+            int j = 0;
+            int k = 0;
+            Button clickbutton = (Button)sender;
             for (int i = 0; i < 5; i++)
             {
-                ColoranswerRow[i].BackColor = colors[i];
+
+
+
+                for (int ii = 0; ii < 5; ii++)
+                {
+                    if (ColorsSecondRow[i].BackColor == AnswerRow[ii])  // jesli dany kolor istnieje w naszej odpowiedzi 
+                    {
+                        if (ColorsSecondRow[i].BackColor == AnswerRow[i])
+                        {
+                            AnswerSecondRow[j].BackColor = Color.Black;
+                            k++;
+                        }
+                        else
+                        {
+                            AnswerSecondRow[j].BackColor = Color.Red;
+                        }
+                        j++;
+                    }
+                    
+                }
+                if (k == 5)
+                {
+                    textBox1.Text = "YOU WON";
+                    pictureBox1.Image = Properties.Resources.won;
+                }
+                blocker = k;
             }
+        }
+        public void CheckPosition3(object sender, EventArgs e)
+        {
+            int j = 0;
+            int k = 0;
+            Button clickbutton = (Button)sender;
+            for (int i = 0; i < 5; i++)
+            {
 
 
+                for (int ii = 0; ii < 5; ii++)
+                {
+                    if (ColorsThirdRow[i].BackColor == AnswerRow[ii])  // jesli dany kolor istnieje w naszej odpowiedzi 
+                    {
+                        if (ColorsThirdRow[i].BackColor == AnswerRow[i])
+                        {
+                            AnswerThirdRow[j].BackColor = Color.Black;
+                            k++;
+                        }
+                        else
+                        {
+                            AnswerThirdRow[j].BackColor = Color.Red;
+                        }
+                        j++;
+                    }
+                    
+                }
+                if (k == 5)
+                {
+                    textBox1.Text = "YOU WON";
+                    pictureBox1.Image = Properties.Resources.won;
+                }
+                blocker = k;
+            }
+        }
+        public void CheckPosition4(object sender, EventArgs e)
+        {
+            int j = 0;
+            int k = 0;
+            Button clickbutton = (Button)sender;
+            for (int i = 0; i < 5; i++)
+            {
+
+
+
+                for (int ii = 0; ii < 5; ii++)
+                {
+                    if (ColorsFourthRow[i].BackColor == AnswerRow[ii])  // jesli dany kolor istnieje w naszej odpowiedzi 
+                    {
+                        if (ColorsFourthRow[i].BackColor == AnswerRow[i])
+                        {
+                            AnswerFourthRow[j].BackColor = Color.Black;
+                            k++;
+                        }
+                        else
+                        {
+                            AnswerFourthRow[j].BackColor = Color.Red;
+                        }
+                        j++;
+                    }
+                    
+                }
+                if (k == 5)
+                {
+                    textBox1.Text = "YOU WON";
+                    pictureBox1.Image = Properties.Resources.won;
+                }
+                
+                blocker = k;
+            }
+        }
+        public void CheckPosition5(object sender, EventArgs e)
+        {
+            int j = 0;
+            int k = 0;
+            Button clickbutton = (Button)sender;
+            for (int i = 0; i < 5; i++)
+            {
+
+
+                for (int ii = 0; ii < 5; ii++)
+                {
+                    if (ColorsFifthRow[i].BackColor == AnswerRow[ii])  // jesli dany kolor istnieje w naszej odpowiedzi 
+                    {
+                        if (ColorsFifthRow[i].BackColor == AnswerRow[i])
+                        {
+                            AnswerFifthRow[j].BackColor = Color.Black;
+                            k++;
+                        }
+                        else
+                        {
+                        AnswerFifthRow[j].BackColor = Color.Red;
+                        }
+                        j++;
+                    }
+                    
+                }
+                if (k == 5)
+                {
+                    textBox1.Text = "YOU WON";
+                    pictureBox1.Image = Properties.Resources.won;
+                }
+                blocker = k;
+            }
+        }
+        public void CheckPosition6(object sender, EventArgs e)
+        {
+            int j = 0;
+            int k = 0;
+            Button clickbutton = (Button)sender;
+            for (int i = 0; i < 5; i++)
+            {
+
+
+                for (int ii = 0; ii < 5; ii++)
+                {
+                    if (ColorssixthRow[i].BackColor == AnswerRow[ii])  // jesli dany kolor istnieje w naszej odpowiedzi 
+                    {
+                        if (ColorssixthRow[i].BackColor == AnswerRow[i])
+                        {
+                            AnswersixthRow[j].BackColor = Color.Black;
+                            k++;
+                        }
+                        else
+                        {
+                            AnswersixthRow[j].BackColor = Color.Red;
+                        }
+                        j++;
+                    }
+                    
+                }
+                if (j == 5)
+                {
+                    pictureBox1.Image = Properties.Resources.won;
+                    textBox1.Text = "YOU WON";
+                }
+                blocker = k;
+            }
+        }
+        public void CheckPosition7(object sender, EventArgs e)
+        {
+            int j = 0;
+            int k = 0;
+            Button clickbutton = (Button)sender;
+            for (int i = 0; i < 5; i++)
+            {
+
+                for(int ii = 0;ii<5;ii++)
+                {
+                    if(ColorsseventhRow[i].BackColor == AnswerRow[ii])  // jesli dany kolor istnieje w naszej odpowiedzi 
+                    {
+                        if (ColorsseventhRow[i].BackColor == AnswerRow[i])
+                        {
+                            AnswerseventhRow[j].BackColor = Color.Black;
+                            k++;
+                        }else
+                        {
+                            AnswerseventhRow[j].BackColor = Color.Red;
+                        }
+                        j++;
+                    }
+                    
+                }
+                if (k == 5)
+                {
+                    textBox1.Text = "YOU WON";
+                    pictureBox1.Image = Properties.Resources.won;
+                }
+                blocker = k;
+            }
+        }
+        private void Check(object sender, EventArgs e)
+        {
+
+            if (blocker < 5)
+            {
+                textBox1.Text = "You have to guess the colors first!!";
+                pictureBox1.Image = Properties.Resources.cheater2;
+            }
+            else
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    ColoranswerRow[i].BackColor = colors[i];
+                }
+
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
