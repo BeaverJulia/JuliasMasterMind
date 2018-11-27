@@ -13,52 +13,79 @@ namespace JuliasMasterMind
 
     public partial class Form1 : Form
     {
-        int blocker;
-        Color[] arrayOfcolors;
-        List<Button> ColorsFirstRow;
-        List<Button>  ColorsSecondRow;
+        Color[] arrayOfcolors;  //mozliwe kolory
+
+        List<Button> ColorsFirstRow;    //pola dla gracza pola odpowiedzi
+        List<Button> ColorsSecondRow;
         List<Button> ColorsThirdRow;
         List<Button> ColorsFourthRow;
         List<Button> ColorsFifthRow;
-        List<Button> ColorssixthRow;
-        List<Button> ColorsseventhRow;
-        List<Button> AnswerFirstRow;
+        List<Button> ColorsSixthRow;
+        List<Button> ColorsSeventhRow;
+
+        List<List<Button>> ListOfRowColors;   // lista list rzędów
+
+        List<Button> AnswerFirstRow;    // result of player choice
         List<Button> AnswerSecondRow;
         List<Button> AnswerThirdRow;
         List<Button> AnswerFourthRow;
         List<Button> AnswerFifthRow;
-        List<Button> AnswersixthRow;
-        List<Button> AnswerseventhRow;
-        List<Button> ColoranswerRow;
-        Color[] AnswerRow;
-        Color[] colors;
-        int[] indexofColors;
+        List<Button> AnswerSixthRow;
+        List<Button> AnswerSeventhRow;
+
+        int indexofActualRow;
+        List<List<Button>> ListOfResults; // list of results
+
+        List<Button> ColoranswerRow; //buttony z odpowiedziami
+
+
+        Color[] ShuffledColors; //tablica juz losowo ulozonych kolorow
+        
+        int blocker;
+
         public Form1()
         {
             InitializeComponent();
-            
-           arrayOfcolors = new Color[] { Color.White, Color.Aqua, Color.Coral, Color.DarkGreen, Color.DeepPink, Color.Yellow };
-            colors = new Color[5];
-            AnswerRow = new Color[5];
-            ColorsFirstRow = new List<Button>();
+
+           arrayOfcolors = new Color[] { Color.Plum, Color.Aqua, Color.Coral, Color.DarkGreen, Color.DeepPink, Color.Yellow, Color.SeaGreen, Color.Orange,Color.Olive };
+           ColorsFirstRow = new List<Button>();
            ColorsSecondRow = new List<Button>();
            ColorsThirdRow = new List<Button>();
            ColorsFourthRow = new List<Button>();
            ColorsFifthRow = new List<Button>();
-           ColorssixthRow = new List<Button>();
-           ColorsseventhRow = new List<Button>();
+           ColorsSixthRow = new List<Button>();
+           ColorsSeventhRow = new List<Button>();
            ColoranswerRow = new List<Button>();
+
+           ListOfRowColors = new List<List<Button>>()
+            { 
+             ColorsFirstRow,
+             ColorsSecondRow,
+             ColorsThirdRow,
+             ColorsFourthRow,
+             ColorsFifthRow,
+             ColorsSixthRow,
+             ColorsSeventhRow
+            };
+           
            AnswerFirstRow = new List<Button> ();
            AnswerSecondRow = new List<Button>();
            AnswerThirdRow = new List<Button>();
            AnswerFourthRow = new List<Button>();
            AnswerFifthRow = new List<Button>();
-           AnswersixthRow = new List<Button>();
-           AnswerseventhRow = new List<Button>();
-            
-
-
-            List<Control> list = new List<Control>();//zbieranie buttonów i dodawanie do odpowiedniej listy
+           AnswerSixthRow = new List<Button>();
+           AnswerSeventhRow = new List<Button>();
+            ListOfResults = new List<List<Button>>()
+           {
+                AnswerFirstRow,
+                AnswerSecondRow,
+                AnswerThirdRow,
+                AnswerFourthRow,
+                AnswerFifthRow,
+                AnswerSixthRow,
+                AnswerSeventhRow,
+           };
+           indexofActualRow = 0;
 
             foreach (var control in this.Controls)
             {
@@ -94,12 +121,12 @@ namespace JuliasMasterMind
                             }
                         case "sixth":
                             {
-                                ColorssixthRow.Add(temp);
+                                ColorsSixthRow.Add(temp);
                                 break;
                             }
                         case "seventh":
                             {
-                                ColorsseventhRow.Add(temp);
+                                ColorsSeventhRow.Add(temp);
                                 break;
                             }
                         case "Answer":
@@ -135,12 +162,12 @@ namespace JuliasMasterMind
                             }
                         case "Control6":
                             {
-                                AnswersixthRow.Add(temp);
+                                AnswerSixthRow.Add(temp);
                                 break;
                             }
                         case "Control7":
                             {
-                                AnswerseventhRow.Add(temp);
+                                AnswerSeventhRow.Add(temp);
                                 break;
                             }
                     
@@ -156,9 +183,9 @@ namespace JuliasMasterMind
         {
             //1. Uzupełnienie tablicy losowymi indeksami i uzupełnienie tablicy losowymi kolorami
             int[] indexes = new int[5];
+            ShuffledColors= new Color[5];
             List<int> poss = new List<int>() { 0, 1, 2, 3, 4 };
             Random random = new Random();
-            int j = 0;
             int range = 4;
             for (int i=0;i<5;i++)
             {
@@ -166,292 +193,79 @@ namespace JuliasMasterMind
                 range--;
                 indexes[i] = poss[rand];
                 poss.Remove(indexes[i]);
-                colors[i] = arrayOfcolors[indexes[i]];
+                ShuffledColors[i] = arrayOfcolors[indexes[i]];
             }
-            for (int i = 0; i < 5; i++)
-            {
-                AnswerRow[i] = colors[i];
-            }
+            
 
         }
+        int indexactualcolor = 0;
         public void ChangeColor(object sender, EventArgs e)
         {
             Button clickbutton = (Button)sender;
-            indexofColors = new int[5] { 0, 0, 0, 0, 0 };
-            for (int i = 0; i < 6; i++)
-            {
-                if (clickbutton.BackColor == arrayOfcolors[i])
-                {
-                    if (i == 5)
+
+                    if (indexactualcolor ==9)
                     {
-                        clickbutton.BackColor = arrayOfcolors[0];
+                        indexactualcolor = 0;
                     }
-                    else
-                    {
-                        clickbutton.BackColor = arrayOfcolors[i + 1];
-                    }
-                    break;
+            clickbutton.BackColor = arrayOfcolors[indexactualcolor];
 
-                }
-            }
-
-        }
-        public void CheckPosition(object sender, EventArgs e)
-        {
-            int j = 0;
-            int k = 0;
-            Button clickbutton = (Button)sender;
-            for (int i = 0; i < 5; i++)
-            {
-
-
-
-                for (int ii = 0; ii < 5; ii++)
-                {
-                    if (ColorsFirstRow[i].BackColor == AnswerRow[ii])  // jesli dany kolor istnieje w naszej odpowiedzi 
-                    {
-                        if (ColorsFirstRow[i].BackColor == AnswerRow[i])
-                        {
-                            AnswerFirstRow[j].BackColor = Color.Black;
-                            k++;
-                        }
-                        else
-                        {
-                            AnswerFirstRow[j].BackColor = Color.Red;
-                        }
-                        j++;
-                    }
-                   
-                }
-                if (k == 5)
-                {
-                    textBox1.Text = "YOU WON";
-                    pictureBox1.Image = Properties.Resources.won;
-                }
-                blocker = k;
-            }
-        }
-        public void CheckPosition2(object sender, EventArgs e)
-        {
-            int j = 0;
-            int k = 0;
-            Button clickbutton = (Button)sender;
-            for (int i = 0; i < 5; i++)
-            {
-
-
-
-                for (int ii = 0; ii < 5; ii++)
-                {
-                    if (ColorsSecondRow[i].BackColor == AnswerRow[ii])  // jesli dany kolor istnieje w naszej odpowiedzi 
-                    {
-                        if (ColorsSecondRow[i].BackColor == AnswerRow[i])
-                        {
-                            AnswerSecondRow[j].BackColor = Color.Black;
-                            k++;
-                        }
-                        else
-                        {
-                            AnswerSecondRow[j].BackColor = Color.Red;
-                        }
-                        j++;
-                    }
-                    
-                }
-                if (k == 5)
-                {
-                    textBox1.Text = "YOU WON";
-                    pictureBox1.Image = Properties.Resources.won;
-                }
-                blocker = k;
-            }
-        }
-        public void CheckPosition3(object sender, EventArgs e)
-        {
-            int j = 0;
-            int k = 0;
-            Button clickbutton = (Button)sender;
-            for (int i = 0; i < 5; i++)
-            {
-
-
-                for (int ii = 0; ii < 5; ii++)
-                {
-                    if (ColorsThirdRow[i].BackColor == AnswerRow[ii])  // jesli dany kolor istnieje w naszej odpowiedzi 
-                    {
-                        if (ColorsThirdRow[i].BackColor == AnswerRow[i])
-                        {
-                            AnswerThirdRow[j].BackColor = Color.Black;
-                            k++;
-                        }
-                        else
-                        {
-                            AnswerThirdRow[j].BackColor = Color.Red;
-                        }
-                        j++;
-                    }
-                    
-                }
-                if (k == 5)
-                {
-                    textBox1.Text = "YOU WON";
-                    pictureBox1.Image = Properties.Resources.won;
-                }
-                blocker = k;
-            }
-        }
-        public void CheckPosition4(object sender, EventArgs e)
-        {
-            int j = 0;
-            int k = 0;
-            Button clickbutton = (Button)sender;
-            for (int i = 0; i < 5; i++)
-            {
-
-
-
-                for (int ii = 0; ii < 5; ii++)
-                {
-                    if (ColorsFourthRow[i].BackColor == AnswerRow[ii])  // jesli dany kolor istnieje w naszej odpowiedzi 
-                    {
-                        if (ColorsFourthRow[i].BackColor == AnswerRow[i])
-                        {
-                            AnswerFourthRow[j].BackColor = Color.Black;
-                            k++;
-                        }
-                        else
-                        {
-                            AnswerFourthRow[j].BackColor = Color.Red;
-                        }
-                        j++;
-                    }
-                    
-                }
-                if (k == 5)
-                {
-                    textBox1.Text = "YOU WON";
-                    pictureBox1.Image = Properties.Resources.won;
-                }
+            indexactualcolor++;
                 
-                blocker = k;
-            }
+           
+
         }
-        public void CheckPosition5(object sender, EventArgs e)
+        public void CheckIfWin(object sender, EventArgs e)
         {
             int j = 0;
             int k = 0;
             Button clickbutton = (Button)sender;
             for (int i = 0; i < 5; i++)
             {
-
-
                 for (int ii = 0; ii < 5; ii++)
                 {
-                    if (ColorsFifthRow[i].BackColor == AnswerRow[ii])  // jesli dany kolor istnieje w naszej odpowiedzi 
-                    {
-                        if (ColorsFifthRow[i].BackColor == AnswerRow[i])
+                    
+                        if (ListOfRowColors[indexofActualRow][i].BackColor == ShuffledColors[ii])  // jesli dany kolor istnieje w naszej odpowiedzi 
                         {
-                            AnswerFifthRow[j].BackColor = Color.Black;
-                            k++;
+                            if (ListOfRowColors[indexofActualRow][i].BackColor == ShuffledColors[i])
+                            {
+                                ListOfResults[indexofActualRow][j].BackColor = Color.Black;      // prawidlowe miejsce i prawidlowy kolor
+                                k++;
+                            }
+                            else
+                            {
+                                ListOfResults[indexofActualRow][j].BackColor = Color.Red;        //prawidlowy kolor
+                            }
+                            j++;
                         }
-                        else
-                        {
-                        AnswerFifthRow[j].BackColor = Color.Red;
-                        }
-                        j++;
-                    }
                     
                 }
-                if (k == 5)
-                {
-                    textBox1.Text = "YOU WON";
-                    pictureBox1.Image = Properties.Resources.won;
-                }
-                blocker = k;
             }
-        }
-        public void CheckPosition6(object sender, EventArgs e)
-        {
-            int j = 0;
-            int k = 0;
-            Button clickbutton = (Button)sender;
-            for (int i = 0; i < 5; i++)
+            indexofActualRow++;
+            if (k == 5)
             {
-
-
-                for (int ii = 0; ii < 5; ii++)
-                {
-                    if (ColorssixthRow[i].BackColor == AnswerRow[ii])  // jesli dany kolor istnieje w naszej odpowiedzi 
-                    {
-                        if (ColorssixthRow[i].BackColor == AnswerRow[i])
-                        {
-                            AnswersixthRow[j].BackColor = Color.Black;
-                            k++;
-                        }
-                        else
-                        {
-                            AnswersixthRow[j].BackColor = Color.Red;
-                        }
-                        j++;
-                    }
-                    
-                }
-                if (j == 5)
-                {
-                    pictureBox1.Image = Properties.Resources.won;
-                    textBox1.Text = "YOU WON";
-                }
-                blocker = k;
-            }
-        }
-        public void CheckPosition7(object sender, EventArgs e)
-        {
-            int j = 0;
-            int k = 0;
-            Button clickbutton = (Button)sender;
-            for (int i = 0; i < 5; i++)
-            {
-
-                for(int ii = 0;ii<5;ii++)
-                {
-                    if(ColorsseventhRow[i].BackColor == AnswerRow[ii])  // jesli dany kolor istnieje w naszej odpowiedzi 
-                    {
-                        if (ColorsseventhRow[i].BackColor == AnswerRow[i])
-                        {
-                            AnswerseventhRow[j].BackColor = Color.Black;
-                            k++;
-                        }else
-                        {
-                            AnswerseventhRow[j].BackColor = Color.Red;
-                        }
-                        j++;
-                    }
-                    
-                }
-                if (k == 5)
-                {
-                    textBox1.Text = "YOU WON";
-                    pictureBox1.Image = Properties.Resources.won;
-                }
-                blocker = k;
-            }
-        }
-        private void Check(object sender, EventArgs e)
-        {
-
-            if (blocker < 5)
-            {
-                textBox1.Text = "You have to guess the colors first!!";
-                pictureBox1.Image = Properties.Resources.cheater2;
+                textBox1.Text = "YOU WON";
+                pictureBox1.Image = Properties.Resources.won;
             }
             else
             {
-                for (int i = 0; i < 5; i++)
+                textBox1.Text = "TRY AGAIN";
+                pictureBox1.Image = Properties.Resources.cheater2;
+            }
+            blocker = k;
+        }
+ 
+        private void Check(object sender, EventArgs e)
+        {
+
+            textBox1.Text = "YOU LOST";
+            pictureBox1.Image = Properties.Resources.cheater2;
+
+            for (int i = 0; i < 5; i++)
                 {
-                    ColoranswerRow[i].BackColor = colors[i];
+                    ColoranswerRow[i].BackColor = ShuffledColors[i];
                 }
 
-            }
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -460,6 +274,11 @@ namespace JuliasMasterMind
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SHOW(object sender, EventArgs e)
         {
 
         }
