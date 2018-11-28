@@ -223,7 +223,8 @@ namespace JuliasMasterMind
             {
                 for (int ii = 0; ii < 5; ii++)
                 {
-                    
+                    try
+                    {
                         if (ListOfRowColors[indexofActualRow][i].BackColor == ShuffledColors[ii])  // jesli dany kolor istnieje w naszej odpowiedzi 
                         {
                             if (ListOfRowColors[indexofActualRow][i].BackColor == ShuffledColors[i])
@@ -237,7 +238,12 @@ namespace JuliasMasterMind
                             }
                             j++;
                         }
-                    
+                    }
+                    catch (Exception s)
+                    {
+                        MessageBox.Show("Something Went wrong :("+ s);
+
+                    }
                 }
             }
             indexofActualRow++;

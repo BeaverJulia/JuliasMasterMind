@@ -208,7 +208,7 @@
             // button10
             // 
             this.button10.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button10.Font = new System.Drawing.Font("OpenSymbol", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.Location = new System.Drawing.Point(12, 530);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(320, 50);
@@ -891,10 +891,10 @@
             // button65
             // 
             this.button65.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button65.Font = new System.Drawing.Font("OpenSymbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button65.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button65.Location = new System.Drawing.Point(252, 12);
             this.button65.Name = "button65";
-            this.button65.Size = new System.Drawing.Size(74, 39);
+            this.button65.Size = new System.Drawing.Size(79, 39);
             this.button65.TabIndex = 85;
             this.button65.Text = "SHOW";
             this.button65.UseVisualStyleBackColor = false;
@@ -912,10 +912,10 @@
             // button78
             // 
             this.button78.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button78.Font = new System.Drawing.Font("OpenSymbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button78.Location = new System.Drawing.Point(100, 113);
+            this.button78.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button78.Location = new System.Drawing.Point(100, 106);
             this.button78.Name = "button78";
-            this.button78.Size = new System.Drawing.Size(226, 26);
+            this.button78.Size = new System.Drawing.Size(226, 33);
             this.button78.TabIndex = 88;
             this.button78.Text = "HELP AND ABOUT";
             this.button78.UseVisualStyleBackColor = false;
