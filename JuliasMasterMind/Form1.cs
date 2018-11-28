@@ -47,7 +47,7 @@ namespace JuliasMasterMind
         {
             InitializeComponent();
 
-           arrayOfcolors = new Color[] { Color.Plum, Color.Aqua, Color.Coral, Color.DarkGreen, Color.DeepPink, Color.Yellow, Color.SeaGreen, Color.Orange,Color.Olive };
+           arrayOfcolors = new Color[] { Color.Orange , Color.Aqua, Color.LightCoral, Color.DarkBlue, Color.DeepPink, Color.Yellow, Color.Brown , Color.LightGreen ,Color.Red};
            ColorsFirstRow = new List<Button>();
            ColorsSecondRow = new List<Button>();
            ColorsThirdRow = new List<Button>();
@@ -281,6 +281,13 @@ namespace JuliasMasterMind
         private void SHOW(object sender, EventArgs e)
         {
 
+        }
+
+        private void button78_Click(object sender, EventArgs e)
+        {
+            HELP form2 = new HELP();
+
+            form2.Show();
         }
     }
 }

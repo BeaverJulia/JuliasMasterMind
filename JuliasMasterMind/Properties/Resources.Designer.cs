@@ -73,6 +73,16 @@ namespace JuliasMasterMind.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap possiblecolors {
+            get {
+                object obj = ResourceManager.GetObject("possiblecolors", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap won {
             get {
                 object obj = ResourceManager.GetObject("won", resourceCulture);
