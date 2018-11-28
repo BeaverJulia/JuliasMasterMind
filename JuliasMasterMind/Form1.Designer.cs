@@ -105,13 +105,13 @@
             this.button76 = new System.Windows.Forms.Button();
             this.button77 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button65 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button78 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -888,15 +888,6 @@
             this.textBox1.TabIndex = 84;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 54);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(85, 85);
-            this.pictureBox1.TabIndex = 69;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // button65
             // 
             this.button65.BackColor = System.Drawing.SystemColors.ActiveBorder;
@@ -908,15 +899,6 @@
             this.button65.Text = "SHOW";
             this.button65.UseVisualStyleBackColor = false;
             this.button65.Click += new System.EventHandler(this.Check);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::JuliasMasterMind.Properties.Resources.possiblecolors;
-            this.pictureBox2.Location = new System.Drawing.Point(16, 585);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(221, 27);
-            this.pictureBox2.TabIndex = 86;
-            this.pictureBox2.TabStop = false;
             // 
             // label1
             // 
@@ -938,6 +920,24 @@
             this.button78.Text = "HELP AND ABOUT";
             this.button78.UseVisualStyleBackColor = false;
             this.button78.Click += new System.EventHandler(this.button78_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::JuliasMasterMind.Properties.Resources.possiblecolors;
+            this.pictureBox2.Location = new System.Drawing.Point(16, 585);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(221, 27);
+            this.pictureBox2.TabIndex = 86;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(12, 54);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(85, 85);
+            this.pictureBox1.TabIndex = 69;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Form1
             // 
@@ -1027,9 +1027,9 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Text = "JuliasMasterMind";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
